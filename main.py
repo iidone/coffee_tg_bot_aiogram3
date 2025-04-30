@@ -280,6 +280,7 @@ async def process_comment(message: types.Message, state: FSMContext):
 async def main():
 
     dp['db_pool'] = await create_db_pool()
+    await delete_expired_bookings(dp['db_pool'])
 
     try:
         print("Бот запущен...")
